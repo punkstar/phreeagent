@@ -1,11 +1,29 @@
 {
-    "require": {
-        "rmccue/requests": ">=1.0"
+    "name": "punkstar/phreeagent",
+    "description": "A PHP library for programmatic access to the FreeAgent API",
+    "keywords": ["freeagent"],
+    "homepage": "https://github.com/punkstar/phreeagent",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nick Jones",
+            "email": "nick@nicksays.co.uk",
+            "homepage": "http://www.nicksays.co.uk",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/punkstar/phreeagent/issues",
+        "wiki": "https://github.com/punkstar/phreeagent/wiki",
+        "source": "https://github.com/punkstar/phreeagent"
     },
     "autoload": {
         "psr-0": {
             "Phreeagent" : "src/",
             "Requests": "library/"
         }
+    },
+    "require": {
+        "rmccue/requests": ">=1.0"
     }
 }
