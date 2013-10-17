@@ -151,15 +151,15 @@ class Invoice extends Resource
     {
         $invoice_items = array();
 
-        foreach ($invoice_items as $invoice_item) {
+        foreach ($this->invoice_items as $invoice_item) {
             /** @var Invoice\InvoiceItem $invoice_item */
             $invoice_items[] = $invoice_item->toArray();
         }
 
         return array(
             'invoice' => array(
-                'contact' => $this->contact->getUrl(),
-                'project' => '', // @TODO Add projects
+                'contact' => $this->contact->url,
+                'project' => null, // @TODO Add projects
                 'comments' => $this->comments,
                 'discount_percent' => $this->discount_percent,
                 'dated_on' => $this->dated_on,
