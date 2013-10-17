@@ -61,7 +61,9 @@ class Contact extends Resource
         $keys = array('organisation_name', 'first_name', 'last_name', 'email');
 
         foreach ($keys as $key) {
-            $this->$key = $response_data->contact->$key;
+            if (isset($response_data->contact->$key)) {
+                $this->$key = $response_data->contact->$key;
+            }
         }
     }
 
