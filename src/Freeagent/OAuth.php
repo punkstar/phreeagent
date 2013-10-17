@@ -11,6 +11,8 @@ class OAuth
     /** @var \Freeagent\Config */
     protected $config;
 
+    public $access_token;
+
     public function __construct(Config $config)
     {
         $this->config = $config;
@@ -23,16 +25,21 @@ class OAuth
      */
     public function getAccessToken()
     {
-        $post_data = array(
-            'client_id'     => $this->config->client_id,
-            'client_secret' => $this->config->client_secret,
-            'refresh_token' => $this->config->refresh_token,
-            'grant_type'    => 'refresh_token',
-        );
+        if ($this->access_token == null) {
+            $post_data = array(
+                'client_id'     => $this->config->client_id,
+                'client_secret' => $this->config->client_secret,
+                'refresh_token' => $this->config->refresh_token,
+                'grant_type'    => 'refresh_token',
+            );
 
-        $response = \Requests::post('https://api.freeagent.com/v2/token_endpoint', array(), $post_data);
-        $response_json = json_decode($response->body);
+            $response = Transport::post('https://api.freeagent.com/v2/token_endpoint', array(), $post_data);
+            $response_json = json_decode($response->body);
 
-        return $response_json->access_token;
+
+           $this->access_token = $response_json->access_token;
+        }
+
+        return $this->access_token;
     }
 }
