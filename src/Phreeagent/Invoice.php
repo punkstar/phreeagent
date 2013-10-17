@@ -144,6 +144,17 @@ class Invoice extends Resource
         );
     }
 
+    public function markAsSent()
+    {
+        Transport::put(
+            sprintf(
+                "%s/transitions/mark_as_sent",
+                $this->getFullEndpoint($this->url)
+            ),
+            $this->getAuthHeaders()
+        );
+    }
+
     /**
      * @return array
      */

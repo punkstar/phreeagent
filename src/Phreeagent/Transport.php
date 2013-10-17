@@ -39,6 +39,20 @@ class Transport
     }
 
     /**
+     * PUT request.
+     *
+     * @param $url
+     * @param $headers
+     * @param array $data
+     * @return \Requests_Response
+     * @throw Exception
+     */
+    public static function put($url, $headers, $data = array())
+    {
+        return self::request('put', $url, $headers, $data);
+    }
+
+    /**
      * @param $method
      * @param $url
      * @param $headers
