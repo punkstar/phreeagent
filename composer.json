@@ -1,0 +1,11 @@
+{
+    "require": {
+        "rmccue/requests": ">=1.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Freeagent" : "src/",
+            "Requests": "library/"
+        }
+    }
+}
