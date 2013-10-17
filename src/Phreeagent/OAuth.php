@@ -1,14 +1,14 @@
 <?php
-namespace Freeagent;
+namespace Phreeagent;
 
 /**
  * Class OAuth
  *
- * @package Freeagent
+ * @package Phreeagent
  */
 class OAuth
 {
-    /** @var \Freeagent\Config */
+    /** @var \Phreeagent\Config */
     protected $config;
 
     public $access_token;

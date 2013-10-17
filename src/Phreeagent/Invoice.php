@@ -1,11 +1,11 @@
 <?php
-namespace Freeagent;
-use Freeagent\Invoice\InvoiceItem;
+namespace Phreeagent;
+use Phreeagent\Invoice\InvoiceItem;
 
 /**
  * Class Invoice
  *
- * @package Freeagent
+ * @package Phreeagent
  */
 class Invoice extends Resource
 {

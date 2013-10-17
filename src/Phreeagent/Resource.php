@@ -1,10 +1,10 @@
 <?php
-namespace Freeagent;
+namespace Phreeagent;
 
 /**
  * Class Resource
  *
- * @package Freeagent
+ * @package Phreeagent
  */
 abstract class Resource
 {
@@ -34,7 +34,7 @@ abstract class Resource
     /** @var string|null */
     protected $url;
 
-    /** @var \Freeagent\Config */
+    /** @var \Phreeagent\Config */
     protected $config;
 
     /**

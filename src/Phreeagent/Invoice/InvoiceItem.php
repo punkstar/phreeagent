@@ -1,10 +1,10 @@
 <?php
-namespace Freeagent\Invoice;
+namespace Phreeagent\Invoice;
 
 /**
  * Class InvoiceItem
  *
- * @package Freeagent\Invoice
+ * @package Phreeagent\Invoice
  */
 class InvoiceItem
 {

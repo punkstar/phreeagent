@@ -1,10 +1,10 @@
 <?php
-namespace Freeagent;
+namespace Phreeagent;
 
 /**
  * Class Config
  *
- * @package Freeagent
+ * @package Phreeagent
  */
 class Config
 {

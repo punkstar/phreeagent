@@ -1,12 +1,12 @@
 <?php
-namespace Freeagent;
+namespace Phreeagent;
 
 /**
  * Class Transport
  *
  * Wrapper around requests with logging.
  *
- * @package Freeagent
+ * @package Phreeagent
  */
 class Transport
 {

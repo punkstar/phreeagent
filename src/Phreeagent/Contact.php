@@ -1,10 +1,10 @@
 <?php
-namespace Freeagent;
+namespace Phreeagent;
 
 /**
  * Class Contact
  *
- * @package Freeagent
+ * @package Phreeagent
  */
 class Contact extends Resource
 {
