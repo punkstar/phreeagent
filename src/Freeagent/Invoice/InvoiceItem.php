@@ -31,7 +31,7 @@ class InvoiceItem
     /**
      * @var string
      */
-    public $sales_tax_rate;
+    public $sales_tax_rate = 0;
 
     /**
      * @var int
@@ -39,9 +39,9 @@ class InvoiceItem
     public $position;
 
     /**
-     * @var string
+     * @var int
      */
-    public $second_sales_tax_rate;
+    public $second_sales_tax_rate = 0;
 
     /**
      * @var string
