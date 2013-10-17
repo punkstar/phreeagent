@@ -34,6 +34,21 @@ class InvoiceItem
     public $sales_tax_rate;
 
     /**
+     * @var int
+     */
+    public $position;
+
+    /**
+     * @var string
+     */
+    public $second_sales_tax_rate;
+
+    /**
+     * @var string
+     */
+    public $category;
+
+    /**
      * @return array
      */
     public function toArray()
@@ -43,7 +58,10 @@ class InvoiceItem
             'quantity'       => $this->quantity,
             'price'          => $this->price,
             'description'    => $this->description,
-            'sales_tax_rate' => $this->sales_tax_rate
+            'sales_tax_rate' => $this->sales_tax_rate,
+            'position'       => $this->position,
+            'second_sales_tax_rate' => $this->second_sales_tax_rate,
+            'category'       => $this->category
         );
     }
 }
