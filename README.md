@@ -1,4 +1,20 @@
-Example:
+# Freeagent PHP Library
+
+This library is incomplete, but you may find it useful.
+
+## Implement Features
+
+* Invoices
+    * Fetch Single
+    * Create
+    * Send Email
+    * Mark as sent
+* Contacts
+    * Create
+    * Fetch Single
+    * Fetch All
+
+## Example
 
     <?php
     require_once "vendor/autoload.php";
