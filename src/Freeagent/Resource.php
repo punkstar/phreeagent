@@ -56,7 +56,7 @@ abstract class Resource
     public function load($resource_id)
     {
         $resource_url = sprintf(static::FETCH_ENDPOINT, $resource_id);
-        $response = \Requests::get($this->getFullEndpoint($resource_url), $this->getAuthHeaders());
+        $response = Transport::get($this->getFullEndpoint($resource_url), $this->getAuthHeaders());
 
         $response_obj = json_decode($response->body);
 
@@ -70,7 +70,7 @@ abstract class Resource
      */
     public function create()
     {
-        $response = \Requests::post($this->getFullEndpoint(static::CREATE_ENDPOINT), $this->getAuthHeaders(), $this->toJson());
+        $response = Transport::post($this->getFullEndpoint(static::CREATE_ENDPOINT), $this->getAuthHeaders(), $this->toJson());
         $this->url = $this->getResourcePathFromUrl($response->headers['location']);
     }
 

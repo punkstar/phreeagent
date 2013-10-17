@@ -134,13 +134,13 @@ class Invoice extends Resource
             )
         );
 
-        \Requests::post(
+        Transport::post(
             sprintf(
                 "%s/send_email",
                 $this->getFullEndpoint($this->url)
             ),
             $this->getAuthHeaders(),
-            $post_data
+            json_encode($post_data)
         );
     }
 
