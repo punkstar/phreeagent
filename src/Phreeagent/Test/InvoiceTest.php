@@ -64,4 +64,46 @@ class Invoicetest extends TestCase
         $this->assertEquals('450000', $invoice_item->price);
         $this->assertEquals('15', $invoice_item->quantity);
     }
+
+    /**
+     * @test
+     */
+    public function testMarkAsSent()
+    {
+        $transport = $this->getMock('\Phreeagent\Transport', array('request'));
+
+        $transport->expects($this->once())
+            ->method('request')
+            ->with('put', 'https://api.freeagent.com/v2/invoices/2714/transitions/mark_as_sent')
+            ->will($this->returnValue($this->loadMockResponse(null, 200)));
+
+        $configuration = $this->getConfigurationMock($transport);
+
+        $invoice = new Invoice($configuration);
+        $invoice->setUrl('/v2/invoices/2714');
+
+        $invoice->markAsSent();
+    }
+
+    /**
+     * @test
+     */
+    public function testSendEmail()
+    {
+        $transport = $this->getMock('\Phreeagent\Transport', array('request'));
+
+        $transport->expects($this->once())
+            ->method('request')
+            ->with('post', 'https://api.freeagent.com/v2/invoices/2714/send_email')
+            ->will($this->returnValue($this->loadMockResponse(null, 200)));
+
+        $configuration = $this->getConfigurationMock($transport);
+
+        $invoice = new Invoice($configuration);
+        $invoice->setUrl('/v2/invoices/2714');
+
+        $invoice->sendEmail('to@test.com', 'from@test.com', 'Subject', 'Message');
+    }
+
+    public function test
 }

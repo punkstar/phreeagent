@@ -152,6 +152,9 @@ class Invoice extends Resource
         );
     }
 
+    /**
+     * Change the invoice status to 'Sent'
+     */
     public function markAsSent()
     {
         $this->config->transport->put(

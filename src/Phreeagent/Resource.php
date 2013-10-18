@@ -49,6 +49,22 @@ abstract class Resource
     }
 
     /**
+     * @param string $url
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
      * Load a resource from the API.
      *
      * The parameter is the id of the resource.  E.g., /v2/contacts/2093385 would be loaded by passing 2093385
@@ -63,7 +79,7 @@ abstract class Resource
 
         $response_obj = json_decode($response->body);
 
-        $this->url = $resource_url;
+        $this->setUrl($resource_url);
 
         $this->loadData($response_obj);
     }
