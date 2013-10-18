@@ -1,5 +1,8 @@
 <?php
 namespace Phreeagent;
+use Phreeagent\Exception\InvalidResponse;
+use Phreeagent\Exception\MalformedResponseException;
+use Phreeagent\Exception\UnsuccessfulResponseException;
 
 /**
  * Class Resource
@@ -67,11 +70,23 @@ abstract class Resource
 
     /**
      * Create a resource through the API.
+     *
+     * @throws Exception\UnsuccessfulResponseException
+     * @throws Exception\MalformedResponseException
      */
     public function create()
     {
         $response = $this->config->transport->post($this->getFullEndpoint(static::CREATE_ENDPOINT), $this->getAuthHeaders(), $this->toJson());
-        $this->url = $this->getResourcePathFromUrl($response->headers['location']);
+
+        if (!$response->success) {
+            throw UnsuccessfulResponseException::factory($response, "Resource could not be created");
+        }
+
+        if ($location_header = $response->headers['location']) {
+            $this->url = $this->getResourcePathFromUrl($response->headers['location']);
+        } else {
+            throw MalformedResponseException::factory($response, "Expected 'Location' header, but did not exist");
+        }
     }
 
     /**

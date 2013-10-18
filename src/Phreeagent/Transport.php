@@ -52,13 +52,13 @@ class Transport
         return $this->request('put', $url, $headers, $data);
     }
 
+
     /**
      * @param $method
      * @param $url
      * @param $headers
      * @param array $data
      * @return \Requests_Response
-     * @throws Exception
      */
     public function request($method, $url, $headers, $data = array())
     {
@@ -72,12 +72,6 @@ class Transport
             $response->body,
             json_encode($data)
         );
-
-        if (!$response->success) {
-            throw new Exception($debug_message);
-        } else {
-            echo $debug_message;
-        }
 
         return $response;
     }
