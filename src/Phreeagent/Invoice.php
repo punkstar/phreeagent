@@ -1,5 +1,6 @@
 <?php
 namespace Phreeagent;
+
 use Phreeagent\Invoice\InvoiceItem;
 
 /**

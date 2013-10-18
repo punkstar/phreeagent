@@ -1,5 +1,6 @@
 <?php
 namespace Phreeagent;
+
 use Phreeagent\Exception\InvalidResponse;
 use Phreeagent\Exception\MalformedResponseException;
 use Phreeagent\Exception\UnsuccessfulResponseException;

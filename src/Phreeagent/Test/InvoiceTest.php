@@ -104,6 +104,4 @@ class Invoicetest extends TestCase
 
         $invoice->sendEmail('to@test.com', 'from@test.com', 'Subject', 'Message');
     }
-
-    public function test
 }
