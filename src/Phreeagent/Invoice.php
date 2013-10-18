@@ -134,7 +134,7 @@ class Invoice extends Resource
             )
         );
 
-        Transport::post(
+        $this->config->transport->post(
             sprintf(
                 "%s/send_email",
                 $this->getFullEndpoint($this->url)
@@ -146,7 +146,7 @@ class Invoice extends Resource
 
     public function markAsSent()
     {
-        Transport::put(
+        $this->config->transport->put(
             sprintf(
                 "%s/transitions/mark_as_sent",
                 $this->getFullEndpoint($this->url)

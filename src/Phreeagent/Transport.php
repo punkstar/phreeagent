@@ -19,9 +19,9 @@ class Transport
      * @return \Requests_Response
      * @throws Exception
      */
-    public static function get($url, $headers, $data = array())
+    public function get($url, $headers, $data = array())
     {
-        return self::request('get', $url, $headers, $data);
+        return $this->request('get', $url, $headers, $data);
     }
 
     /**
@@ -33,9 +33,9 @@ class Transport
      * @return \Requests_Response
      * @throws Exception
      */
-    public static function post($url, $headers, $data = array())
+    public function post($url, $headers, $data = array())
     {
-        return self::request('post', $url, $headers, $data);
+        return $this->request('post', $url, $headers, $data);
     }
 
     /**
@@ -47,9 +47,9 @@ class Transport
      * @return \Requests_Response
      * @throw Exception
      */
-    public static function put($url, $headers, $data = array())
+    public function put($url, $headers, $data = array())
     {
-        return self::request('put', $url, $headers, $data);
+        return $this->request('put', $url, $headers, $data);
     }
 
     /**
@@ -60,7 +60,7 @@ class Transport
      * @return \Requests_Response
      * @throws Exception
      */
-    public static function request($method, $url, $headers, $data = array())
+    public function request($method, $url, $headers, $data = array())
     {
         $response = \Requests::$method($url, $headers, $data);
 

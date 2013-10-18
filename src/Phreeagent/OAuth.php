@@ -33,7 +33,7 @@ class OAuth
                 'grant_type'    => 'refresh_token',
             );
 
-            $response = Transport::post('https://api.freeagent.com/v2/token_endpoint', array(), $post_data);
+            $response = $this->config->transport->post('https://api.freeagent.com/v2/token_endpoint', array(), $post_data);
             $response_json = json_decode($response->body);
 
 

@@ -27,7 +27,7 @@ class Contact extends Resource
         $customer_page = 1;
 
         do {
-            $all_customers = Transport::get(
+            $all_customers = $this->config->transport->get(
                 sprintf("%s?per_page=100&page=%d", $this->getFullEndpoint(self::CREATE_ENDPOINT), $customer_page),
                 $this->getAuthHeaders()
             );
