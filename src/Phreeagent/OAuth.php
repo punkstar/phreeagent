@@ -33,11 +33,15 @@ class OAuth
                 'grant_type'    => 'refresh_token',
             );
 
-            $response = $this->config->transport->post('https://api.freeagent.com/v2/token_endpoint', array(), $post_data);
+            $response = $this->config->transport->post(
+                'https://api.freeagent.com/v2/token_endpoint',
+                array(),
+                $post_data
+            );
+
             $response_json = json_decode($response->body);
 
-
-           $this->access_token = $response_json->access_token;
+            $this->access_token = $response_json->access_token;
         }
 
         return $this->access_token;
