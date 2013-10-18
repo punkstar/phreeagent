@@ -76,7 +76,10 @@ abstract class Resource
     public function load($resource_id)
     {
         $resource_url = sprintf(static::FETCH_ENDPOINT, $resource_id);
-        $response = $this->config->transport->get($this->getFullEndpoint($resource_url), $this->getAuthHeaders());
+        $response = $this->config->transport->get(
+            $this->getFullEndpoint($resource_url),
+            $this->getAuthHeaders()
+        );
 
         $response_obj = json_decode($response->body);
 
@@ -93,7 +96,11 @@ abstract class Resource
      */
     public function create()
     {
-        $response = $this->config->transport->post($this->getFullEndpoint(static::CREATE_ENDPOINT), $this->getAuthHeaders(), $this->toJson());
+        $response = $this->config->transport->post(
+            $this->getFullEndpoint(static::CREATE_ENDPOINT),
+            $this->getAuthHeaders(),
+            $this->toJson()
+        );
 
         if (!$response->success) {
             throw UnsuccessfulResponseException::factory($response, "Resource could not be created");
