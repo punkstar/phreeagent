@@ -64,14 +64,14 @@ class Transport
     {
         $response = \Requests::$method($url, $headers, $data);
 
-        $debug_message = sprintf(
-            "--- %s ---\nStatus: %s\nURL: %s\nBody: %s\nPost Data: %s\n",
-            date('c'),
-            $response->status_code,
-            $response->url,
-            $response->body,
-            json_encode($data)
-        );
+//        $debug_message = sprintf(
+//            "--- %s ---\nStatus: %s\nURL: %s\nBody: %s\nPost Data: %s\n",
+//            date('c'),
+//            $response->status_code,
+//            $response->url,
+//            $response->body,
+//            json_encode($data)
+//        );
 
         return $response;
     }
