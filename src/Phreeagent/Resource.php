@@ -107,7 +107,7 @@ abstract class Resource
         }
 
         if ($location_header = $response->headers['location']) {
-            $this->url = $this->getResourcePathFromUrl($response->headers['location']);
+            $this->url = $this->getResourcePathFromUrl($location_header);
         } else {
             throw MalformedResponseException::factory($response, "Expected 'Location' header, but did not exist");
         }
