@@ -177,7 +177,7 @@ class Invoice extends Resource
 
         return array(
             'invoice' => array(
-                'contact' => $this->contact->url,
+                'contact' => ($this->contact) ? $this->contact->url : null,
                 'project' => null, // @TODO Add projects
                 'comments' => $this->comments,
                 'discount_percent' => $this->discount_percent,
