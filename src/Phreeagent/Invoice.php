@@ -98,21 +98,10 @@ class Invoice extends Resource
         /*
          * Add the invoice items
          */
-        $invoice_item_keys = array(
-            'position', 'description', 'item_type', 'price', 'quantity', 'category'
-        );
         foreach ($response_data->invoice->invoice_items as $invoice_item_data) {
-            $invoice_item = new InvoiceItem();
-
-            foreach ($invoice_item_keys as $invoice_item_key) {
-                $invoice_item->$invoice_item_key = $invoice_item_data->$invoice_item_key;
-            }
-
-            if (isset($invoice_item_data->category)) {
-                $invoice_item->category = $this->getResourcePathFromUrl($invoice_item_data->category);
-            }
-
-            $this->addInvoiceItem($invoice_item);
+            $this->addInvoiceItem(
+                $this->loadInvoiceItemData($invoice_item_data)
+            );
         }
 
         /*
@@ -120,6 +109,29 @@ class Invoice extends Resource
          */
         $contact = new Contact($this->config);
         $contact->url = $this->getResourcePathFromUrl($response_data->invoice->contact);
+    }
+
+    /**
+     * @param $invoice_item_data
+     * @return InvoiceItem
+     */
+    protected function loadInvoiceItemData($invoice_item_data)
+    {
+        $invoice_item_keys = array(
+            'position', 'description', 'item_type', 'price', 'quantity', 'category'
+        );
+
+        $invoice_item = new InvoiceItem();
+
+        foreach ($invoice_item_keys as $invoice_item_key) {
+            $invoice_item->$invoice_item_key = $invoice_item_data->$invoice_item_key;
+        }
+
+        if (isset($invoice_item_data->category)) {
+            $invoice_item->category = $this->getResourcePathFromUrl($invoice_item_data->category);
+        }
+
+        return $invoice_item;
     }
 
     /**
