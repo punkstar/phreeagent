@@ -65,6 +65,14 @@ class Invoice extends Resource
     }
 
     /**
+     * @return array
+     */
+    public function getInvoiceItems()
+    {
+        return $this->invoice_items;
+    }
+
+    /**
      * @param Invoice\InvoiceItem $invoice_item
      */
     public function addInvoiceItem(Invoice\InvoiceItem $invoice_item)
@@ -162,7 +170,7 @@ class Invoice extends Resource
     {
         $invoice_items = array();
 
-        foreach ($this->invoice_items as $invoice_item) {
+        foreach ($this->getInvoiceItems() as $invoice_item) {
             /** @var Invoice\InvoiceItem $invoice_item */
             $invoice_items[] = $invoice_item->toArray();
         }
