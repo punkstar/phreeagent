@@ -23,17 +23,17 @@ abstract class Resource
      * @param \stdClass $response_data
      * @return void
      */
-    abstract function loadData(\stdClass $response_data);
+    abstract public function loadData(\stdClass $response_data);
 
     /**
      * @return string
      */
-    abstract function toJson();
+    abstract public function toJson();
 
     /**
      * @return array
      */
-    abstract function toArray();
+    abstract public function toArray();
 
     /** @var string|null */
     protected $url;
