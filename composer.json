@@ -1,6 +1,6 @@
 {
     "name": "punkstar/phreeagent",
-    "description": "A PHP library for programmatic access to the FreeAgent API",
+    "description": "A PHP library for headless access to the FreeAgent API",
     "keywords": ["freeagent"],
     "homepage": "https://github.com/punkstar/phreeagent",
     "license": "MIT",
