@@ -15,6 +15,13 @@ class Contact extends Resource
     public $first_name;
     public $last_name;
     public $email;
+    public $contact_name_on_invoices;
+    public $country;
+    public $charge_sales_tax;
+    public $locale;
+    public $account_balance;
+    public $status;
+    public $uses_contact_invoice_sequence;
 
     /**
      * Return all customers.  An array indexed by email.  Contact objects as values.
@@ -58,7 +65,10 @@ class Contact extends Resource
 
     public function loadData(\stdClass $response_data)
     {
-        $keys = array('organisation_name', 'first_name', 'last_name', 'email');
+        $keys = array(
+            'organisation_name', 'first_name', 'last_name', 'email', 'contact_name_on_invoices', 'country',
+            'locale', 'account_balance', 'status', 'uses_contact_invoice_sequence', 'charge_sales_tax'
+        );
 
         foreach ($keys as $key) {
             if (isset($response_data->contact->$key)) {
@@ -77,7 +87,14 @@ class Contact extends Resource
                 'organisation_name' => $this->organisation_name,
                 'first_name'        => $this->first_name,
                 'last_name'         => $this->last_name,
-                'email'             => $this->email
+                'email'             => $this->email,
+                'contact_name_on_invoices' => $this->contact_name_on_invoices,
+                'country'           => $this->country,
+                'locale'            => $this->locale,
+                'account_balance'   => $this->account_balance,
+                'status'            => $this->status,
+                'charge_sales_tax'  => $this->charge_sales_tax,
+                'uses_contact_invoice_sequence' => $this->uses_contact_invoice_sequence
             )
         );
     }
