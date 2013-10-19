@@ -1,5 +1,6 @@
 <?php
 namespace Phreeagent;
+use Phreeagent\Exception\InvalidRequestResponseException;
 
 /**
  * Class OAuth
@@ -22,6 +23,7 @@ class OAuth
      * Given a client id, client secret and a refresh token, request a new access token from the API.
      *
      * @return string
+     * @throws Exception\UnsuccessfulResponseException
      */
     public function getAccessToken()
     {
@@ -38,6 +40,13 @@ class OAuth
                 array(),
                 $post_data
             );
+
+            if (!$response->success) {
+                throw InvalidRequestResponseException::factory(
+                    $response,
+                    "Could not fetch access token, are your credentials correct?"
+                );
+            }
 
             $response_json = json_decode($response->body);
 
