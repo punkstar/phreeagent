@@ -3,7 +3,7 @@ namespace Phreeagent\Test;
 
 use Phreeagent\Invoice;
 
-class Invoicetest extends TestCase
+class InvoiceTest extends TestCase
 {
     /**
      * @test
