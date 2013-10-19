@@ -52,27 +52,21 @@ class Transport
         return $this->request('put', $url, $headers, $data);
     }
 
-
     /**
      * @param $method
      * @param $url
      * @param $headers
      * @param array $data
      * @return \Requests_Response
+     * @throws \Exception
      */
     public function request($method, $url, $headers, $data = array())
     {
-        $response = \Requests::$method($url, $headers, $data);
-
-//        $debug_message = sprintf(
-//            "--- %s ---\nStatus: %s\nURL: %s\nBody: %s\nPost Data: %s\n",
-//            date('c'),
-//            $response->status_code,
-//            $response->url,
-//            $response->body,
-//            json_encode($data)
-//        );
-
-        return $response;
+        if (method_exists('\Requests', $method)) {
+            $response = \Requests::$method($url, $headers, $data);
+            return $response;
+        } else {
+            throw new \Exception("HTTP method $method not supported");
+        }
     }
 }
