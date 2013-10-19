@@ -13,6 +13,6 @@ class ResponseException extends \Exception
             $response->body
         );
 
-        return new UnsuccessfulResponseException($full_exception_message);
+        return new static($full_exception_message);
     }
 }
