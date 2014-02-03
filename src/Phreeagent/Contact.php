@@ -82,20 +82,24 @@ class Contact extends Resource
      */
     public function toArray()
     {
+        $contact_data = array(
+            'organisation_name' => $this->organisation_name,
+            'first_name'        => $this->first_name,
+            'last_name'         => $this->last_name,
+            'email'             => $this->email,
+            'contact_name_on_invoices' => $this->contact_name_on_invoices,
+            'country'           => $this->country,
+            'locale'            => $this->locale,
+            'account_balance'   => $this->account_balance,
+            'status'            => $this->status,
+            'charge_sales_tax'  => $this->charge_sales_tax,
+            'uses_contact_invoice_sequence' => $this->uses_contact_invoice_sequence
+        );
+
+        $contact_data = array_filter($contact_data);
+
         return array(
-            'contact' => array(
-                'organisation_name' => $this->organisation_name,
-                'first_name'        => $this->first_name,
-                'last_name'         => $this->last_name,
-                'email'             => $this->email,
-                'contact_name_on_invoices' => $this->contact_name_on_invoices,
-                'country'           => $this->country,
-                'locale'            => $this->locale,
-                'account_balance'   => $this->account_balance,
-                'status'            => $this->status,
-                'charge_sales_tax'  => $this->charge_sales_tax,
-                'uses_contact_invoice_sequence' => $this->uses_contact_invoice_sequence
-            )
+            'contact' => $contact_data
         );
     }
 
