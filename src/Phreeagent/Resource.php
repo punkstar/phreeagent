@@ -113,7 +113,7 @@ abstract class Resource
     public function create()
     {
         $response = $this->config->transport->post(
-            $this->getFullEndpoint(static::CREATE_ENDPOINT),
+            $this->getCreateEndpoint(),
             $this->getAuthHeaders(),
             $this->toJson()
         );
@@ -130,6 +130,13 @@ abstract class Resource
     }
 
     /**
+     * Get the URL to hit when creating this resource.
+     */
+    public function getCreateEndpoint()
+    {
+        return $this->getFullEndpoint(static::CREATE_ENDPOINT);
+    }
+
     /**
      * @return string
      */
