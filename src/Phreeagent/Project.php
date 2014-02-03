@@ -88,6 +88,47 @@ class Project extends Resource
     }
 
     /**
+     * @param $attribute
+     * @param $value
+     *
+     * @return Task|null
+     */
+    public function findOneTask($attribute, $value, $page_size = 100)
+    {
+        $page = 1;
+
+        do {
+            $tasks_raw = $this->config->transport->get(
+                sprintf(
+                    "%s?per_page=%d&page=%d",
+                    $this->getFullEndpoint(sprintf(Task::FETCH_BY_PROJECT_ENDPOINT, $this->getId())),
+                    $page_size,
+                    $page
+                ),
+                $this->getAuthHeaders()
+            );
+
+            $tasks = json_decode($tasks_raw->body);
+            $tasks_count = count($tasks->tasks);
+
+            foreach ($tasks->tasks as $task_raw_data) {
+                if (isset($task_raw_data->$attribute) && $task_raw_data->$attribute == $value) {
+                    $task = new Task($this->config);
+
+                    $task_data = new \stdClass();
+                    $task_data->task = $task_raw_data;
+
+                    $task->loadData($task_data);
+
+                    return $task;
+                }
+            }
+
+            $page++;
+        } while ($tasks_count > 0);
+    }
+
+    /**
      * @return string
      */
     public function toJson() {
