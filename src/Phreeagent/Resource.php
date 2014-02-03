@@ -12,7 +12,8 @@ use Phreeagent\Exception\UnsuccessfulResponseException;
  */
 abstract class Resource
 {
-    const ENDPOINT = 'https://api.freeagent.com';
+    const ENDPOINT_PRODUCTION = 'https://api.freeagent.com';
+    const ENDPOINT_SANDBOX    = 'https://api.sandbox.freeagent.com';
 
     const CREATE_ENDPOINT = '';
     const FETCH_ENDPOINT  = '';
@@ -114,6 +115,19 @@ abstract class Resource
     }
 
     /**
+    /**
+     * @return string
+     */
+    public function getEndpoint()
+    {
+        if ($this->config->is_sandbox) {
+            return self::ENDPOINT_SANDBOX;
+        } else {
+            return self::ENDPOINT_PRODUCTION;
+        }
+    }
+
+    /**
      * Give a resource identifier, such as /v2/contacts/2093385, return the full URL of the resource, e.g.
      * https://api.freeagent.com/v2/contacts/2093385
      *
@@ -122,7 +136,7 @@ abstract class Resource
      */
     public function getFullEndpoint($endpoint)
     {
-        return self::ENDPOINT . $endpoint;
+        return $this->getEndpoint() . $endpoint;
     }
 
     /**
@@ -134,7 +148,7 @@ abstract class Resource
      */
     public function getResourcePathFromUrl($url)
     {
-        return str_replace(self::ENDPOINT, '', $url);
+        return str_replace($this->getEndpoint(), '', $url);
     }
 
     /**

@@ -35,8 +35,10 @@ class OAuth
                 'grant_type'    => 'refresh_token',
             );
 
+            $token_endpoint = ($this->config->is_sandbox) ? 'https://api.sandbox.freeagent.com/v2/token_endpoint' : 'https://api.freeagent.com/v2/token_endpoint';
+
             $response = $this->config->transport->post(
-                'https://api.freeagent.com/v2/token_endpoint',
+                $token_endpoint,
                 array(),
                 $post_data
             );

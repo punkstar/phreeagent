@@ -29,6 +29,11 @@ class Config
     public $transport;
 
     /**
+     * @var bool
+     */
+    public $is_sandbox = false;
+
+    /**
      * @param $client_id
      * @param $client_secret
      * @param $refresh_token
