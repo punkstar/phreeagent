@@ -9,6 +9,7 @@ namespace Phreeagent;
 class Task extends Resource
 {
     const CREATE_ENDPOINT = '/v2/tasks?project=%s';
+    const FETCH_BY_PROJECT_ENDPOINT = '/v2/tasks?project=%s';
     const FETCH_ENDPOINT  = '/v2/tasks/%s';
 
     /**

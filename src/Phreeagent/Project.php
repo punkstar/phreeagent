@@ -55,6 +55,39 @@ class Project extends Resource
     }
 
     /**
+     * @return Task[]
+     */
+    public function getAllTasks()
+    {
+        $tasks = array();
+
+        $result = $this->config->transport->get(
+            $this->getFullEndpoint(sprintf(Task::FETCH_BY_PROJECT_ENDPOINT, $this->getId())),
+            $this->getAuthHeaders()
+        );
+
+        $raw_response = json_decode($result->body);
+
+        if (isset($raw_response->tasks)) {
+            foreach ($raw_response->tasks as $task_data) {
+                $task = new Task($this->config);
+
+                $task->setProject($this);
+                $task->setUrl($task_data->url);
+
+                $task_data_obj = new \stdClass();
+                $task_data_obj->task = $task_data;
+
+                $task->loadData($task_data_obj);
+
+                $tasks[] = $task;
+            }
+        }
+
+        return $tasks;
+    }
+
+    /**
      * @return string
      */
     public function toJson() {
