@@ -23,7 +23,7 @@ class OAuth
      * Given a client id, client secret and a refresh token, request a new access token from the API.
      *
      * @return string
-     * @throws Exception\UnsuccessfulResponseException
+     * @throws InvalidRequestResponseException
      */
     public function getAccessToken()
     {
