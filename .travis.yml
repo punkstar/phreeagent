@@ -3,6 +3,14 @@ php:
   - 5.5
   - 5.4
   - 5.3
+
 before_script:
-   - composer install
-script: bin/phpunit
+   - curl -s http://getcomposer.org/installer | php
+   - composer install --dev --no-interaction
+
+script:
+   - mkdir -p build/logs
+   - bin/phpunit
+
+after_script:
+   - bin/coveralls -v
