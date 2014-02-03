@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="phreeagent" default="build">
+    <target name="build" depends="lint,test" />
+
+    <target name="lint" description="Perform syntax check of all php files">
+        <phplint>
+            <fileset dir="src">
+                <include name="**/*.php" />
+            </fileset>
+        </phplint>
+    </target>
+
+    <target name="test" description="Run unit tests">
+        <exec executable="bin/phpunit" passthru="true" checkreturn="true" />
+    </target>
+</project>
