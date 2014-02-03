@@ -7,7 +7,7 @@
 
 This library is incomplete, but you may find it useful.
 
-## Implement Features
+## Implemented Features
 
 * Invoices
     * Fetch Single
@@ -18,6 +18,18 @@ This library is incomplete, but you may find it useful.
     * Create
     * Fetch Single
     * Fetch All
+* User
+    * Create
+    * Fetch Single
+* Project
+    * Create
+    * Fetch Single
+* Task
+    * Create
+    * Fetch Single
+* Timeslip
+    * Create
+    * Fetch Single
 
 ## Example
 
