@@ -10,6 +10,8 @@ namespace Phreeagent;
  */
 class Transport
 {
+    public $debug = false;
+
     /**
      * GET request.
      *
@@ -64,6 +66,20 @@ class Transport
     {
         if (method_exists('\Requests', $method)) {
             $response = \Requests::$method($url, $headers, $data);
+
+            if ($this->debug) {
+                $debug_message = sprintf(
+                    "--- %s ---\nStatus: %s\nURL: %s\nBody: %s\nPost Data: %s\n",
+                    date('c'),
+                    $response->status_code,
+                    $response->url,
+                    $response->body,
+                    json_encode($data)
+                );
+
+                echo $debug_message;
+            }
+
             return $response;
         } else {
             throw new \Exception("HTTP method $method not supported");
