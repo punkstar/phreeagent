@@ -46,6 +46,14 @@ class Config
     }
 
     /**
+     * @param bool $debug
+     */
+    public function setDebug($debug)
+    {
+        $this->transport->debug = !!$debug;
+    }
+
+    /**
      * @return string
      */
     public function getAccessToken()
