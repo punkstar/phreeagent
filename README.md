@@ -46,6 +46,23 @@ You'll then need to go through the motions with the [Google OAuth 2.0 Playground
 
 Once you have your refresh token, use it along with your Freeagent App to configure your `Phreeagent\Config` instance, and you're away.
 
+## Using the library
+
+I've decided to experiment a little on how to build an API client library.  The approach I've taken is focussing all of the configuration into a class and passing that around to all the resources that you may want to create.
+
+Creating a project, as an example, will look like this:
+
+    $config = new Phreeagent\Config($client_id, $client_secret, $refresh_token);
+    
+    $contact = new Phreeagent\Contact($config);
+    $contact->load(123);
+    
+    $project = new Phreeagent\Project($config);
+    $project->setContact($contact);
+    $project->name = "Example Project";
+    $project->currency = "GBP";
+    $project->create();
+
 ## Example
 
     <?php
