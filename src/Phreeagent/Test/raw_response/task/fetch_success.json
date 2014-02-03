@@ -1,0 +1,13 @@
+{
+    "task": {
+        "url": "https://api.sandbox.freeagent.com/v2/tasks/164",
+        "project": "https://api.sandbox.freeagent.com/v2/projects/478",
+        "name": "Hello World",
+        "is_billable": true,
+        "billing_rate": "0.0",
+        "billing_period": "hour",
+        "status": "Active",
+        "created_at": "2014-02-03T13:18:36Z",
+        "updated_at": "2014-02-03T13:18:36Z"
+    }
+}
