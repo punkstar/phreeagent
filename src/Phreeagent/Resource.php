@@ -174,6 +174,20 @@ abstract class Resource
     }
 
     /**
+     * Remove any null parameters from an array.
+     *
+     * @param $params
+     *
+     * @return array
+     */
+    public function cleanParameters($params)
+    {
+        return array_filter($params, function ($value) {
+            return !($value === null);
+        });
+    }
+
+    /**
      * @return array
      */
     public function getAuthHeaders()

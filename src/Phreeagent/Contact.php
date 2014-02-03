@@ -96,7 +96,7 @@ class Contact extends Resource
             'uses_contact_invoice_sequence' => $this->uses_contact_invoice_sequence
         );
 
-        $contact_data = array_filter($contact_data);
+        $contact_data = $this->cleanParameters($contact_data);
 
         return array(
             'contact' => $contact_data
