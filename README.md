@@ -31,6 +31,21 @@ This library is incomplete, but you may find it useful.
     * Create
     * Fetch Single
 
+## Generating Credentials
+
+The second version of the Freeagent API uses OAuth 2.0 for authentication.  To get started with this library you will
+need three things:
+
+* OAuth Identifier (`$client_id`)
+* OAuth Secret (`$client_secret`)
+* Refresh Token (`$refresh_token`)
+
+You can get an OAuth Identifer and OAuth Secret from the [Freeagent Developer Dashboard](https://dev.freeagent.com/apps).
+
+You'll then need to go through the motions with the [Google OAuth 2.0 Playground](https://dev.freeagent.com/docs/quick_start) to get your access token, and then generate your refresh token.
+
+Once you have your refresh token, use it along with your Freeagent App to configure your `Phreeagent\Config` instance, and you're away.
+
 ## Example
 
     <?php
