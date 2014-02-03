@@ -119,6 +119,7 @@ class Project extends Resource
                     $task_data->task = $task_raw_data;
 
                     $task->loadData($task_data);
+                    $task->setUrl($task_data->task->url);
 
                     return $task;
                 }
