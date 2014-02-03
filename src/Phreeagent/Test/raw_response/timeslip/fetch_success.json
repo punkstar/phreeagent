@@ -1,0 +1,13 @@
+{
+    "timeslip": {
+        "url": "https://api.freeagent.com/v2/timeslips/540",
+        "user": "https://api.freeagent.com/v2/users/482",
+        "project": "https://api.freeagent.com/v2/projects/478",
+        "task": "https://api.freeagent.com/v2/tasks/164",
+        "dated_on": "2014-02-03",
+        "hours": "16.0",
+        "comment": "Hello World",
+        "updated_at": "2014-02-03T13:18:37Z",
+        "created_at": "2014-02-03T13:18:37Z"
+    }
+}
