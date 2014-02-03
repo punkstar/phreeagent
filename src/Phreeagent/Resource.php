@@ -67,6 +67,21 @@ abstract class Resource
     }
 
     /**
+     * Retrieve the ID of a resource.
+     */
+    public function getId()
+    {
+        $matches = array();
+        preg_match('/(\d+)\/?$/', $this->getUrl(), $matches);
+
+        if (count($matches) > 0 && isset($matches[0])) {
+            return (int) $matches[0];
+        }
+
+        return null;
+    }
+
+    /**
      * Load a resource from the API.
      *
      * The parameter is the id of the resource.  E.g., /v2/contacts/2093385 would be loaded by passing 2093385

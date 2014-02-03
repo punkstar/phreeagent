@@ -91,4 +91,13 @@ class ResourceTest extends TestCase
             $this->resource->getFullEndpoint('/v2/contacts/2093385')
         );
     }
+
+    /**
+     * @test
+     */
+    public function testGetId()
+    {
+        $this->resource->setUrl('https://api.freeagent.com/v2/projects/2');
+        $this->assertEquals(2, $this->resource->getId());
+    }
 }
