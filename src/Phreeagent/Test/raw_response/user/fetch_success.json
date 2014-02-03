@@ -1,0 +1,13 @@
+{
+    "user": {
+        "url": "https://api.freeagent.com/v2/users/480",
+        "first_name": "Nick",
+        "last_name": "Jones",
+        "email": "nick@nicksays.co.uk",
+        "role": "Director",
+        "permission_level": 8,
+        "opening_mileage": "0.0",
+        "updated_at": "2014-02-03T11:49:25Z",
+        "created_at": "2014-02-03T11:49:23Z"
+    }
+}
