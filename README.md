@@ -1,9 +1,8 @@
 # Freeagent PHP Library
 
-[![Build Status](https://travis-ci.org/punkstar/phreeagent.png?branch=master)](https://travis-ci.org/punkstar/phreeagent)
 [![Build Status](https://travis-ci.org/punkstar/phreeagent.png?branch=develop)](https://travis-ci.org/punkstar/phreeagent)
+[![Coverage Status](https://coveralls.io/repos/punkstar/phreeagent/badge.png?branch=develop)](https://coveralls.io/r/punkstar/phreeagent?branch=develop)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/punkstar/phreeagent/badges/quality-score.png?s=09805340d3b322a0f649446c484d9134438b7bfd)](https://scrutinizer-ci.com/g/punkstar/phreeagent/)
-[![Code Coverage](https://scrutinizer-ci.com/g/punkstar/phreeagent/badges/coverage.png?s=8d4657bf5079fb1142acde10713183cc2051993f)](https://scrutinizer-ci.com/g/punkstar/phreeagent/)
 
 This library is incomplete, but you may find it useful.
 
